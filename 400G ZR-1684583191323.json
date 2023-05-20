@@ -1,0 +1,3309 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 4,
+  "links": [],
+  "liveNow": true,
+  "panels": [
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 39,
+      "panels": [],
+      "title": "$Router_A $Router_A_Port",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "uxKjWvyVk"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "tas-ui-is": {
+                  "color": "green",
+                  "index": 0,
+                  "text": "In Service"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "pattern": ".*",
+                "result": {
+                  "color": "yellow",
+                  "index": 1
+                }
+              },
+              "type": "regex"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 0,
+        "y": 1
+      },
+      "id": 29,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/^Cisco\\-IOS\\-XR\\-controller\\-optics\\-oper:optics\\-oper/optics\\-ports/optics\\-port/optics\\-info\\.transport_admin_state$/",
+          "values": false
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "query": "SELECT \"transport_admin_state\" FROM \"Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info\" WHERE (\"source\" =~ /^$Router_A$/ AND \"name\" = 'Optics$Router_A_Port' ) AND $timeFilter",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "Transport Admin State",
+      "transformations": [],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "uxKjWvyVk"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "green-on": {
+                  "color": "green",
+                  "index": 0,
+                  "text": "Green"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "pattern": ".*",
+                "result": {
+                  "color": "yellow",
+                  "index": 1
+                }
+              },
+              "type": "regex"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              },
+              {
+                "color": "#EAB839",
+                "value": 90
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 3,
+        "y": 1
+      },
+      "id": 23,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/^Cisco\\-IOS\\-XR\\-controller\\-optics\\-oper:optics\\-oper/optics\\-ports/optics\\-port/optics\\-info\\.led_state$/",
+          "values": false
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "measurement": "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"led_state\" FROM \"Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info\" WHERE (\"source\" =~ /^$Router_A$/ AND \"name\" = 'Optics$Router_A_Port' ) AND $timeFilter",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "led_state"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source",
+              "operator": "=~",
+              "value": "/^$Router_A$/"
+            },
+            {
+              "condition": "AND",
+              "key": "name",
+              "operator": "=~",
+              "value": "/^$Router_A_Port$/"
+            }
+          ]
+        }
+      ],
+      "title": "LED",
+      "transformations": [],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "uxKjWvyVk"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "optics-state-up": {
+                  "color": "green",
+                  "index": 0,
+                  "text": "UP"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "pattern": ".*",
+                "result": {
+                  "color": "yellow",
+                  "index": 1
+                }
+              },
+              "type": "regex"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 6,
+        "y": 1
+      },
+      "id": 19,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/^Cisco\\-IOS\\-XR\\-controller\\-optics\\-oper:optics\\-oper/optics\\-ports/optics\\-port/optics\\-info\\.controller_state$/",
+          "values": false
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "query": "SELECT \"controller_state\" FROM \"Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info\" WHERE (\"source\" =~ /^$Router_A$/ AND \"name\" = 'Optics$Router_A_Port' ) AND $timeFilter",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "Optic Controller",
+      "transformations": [],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "uxKjWvyVk"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "on": {
+                  "color": "green",
+                  "index": 0
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "pattern": ".*",
+                "result": {
+                  "color": "yellow",
+                  "index": 1
+                }
+              },
+              "type": "regex"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              },
+              {
+                "color": "#EAB839",
+                "value": 90
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 9,
+        "y": 1
+      },
+      "id": 31,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/^Cisco\\-IOS\\-XR\\-controller\\-optics\\-oper:optics\\-oper/optics\\-ports/optics\\-port/optics\\-info\\.laser_state$/",
+          "values": false
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "measurement": "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"laser_state\" FROM \"Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info\" WHERE (\"source\" =~ /^$Router_A$/ AND \"name\" = 'Optics$Router_A_Port' ) AND $timeFilter",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "led_state"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source",
+              "operator": "=~",
+              "value": "/^$Router_A$/"
+            },
+            {
+              "condition": "AND",
+              "key": "name",
+              "operator": "=~",
+              "value": "/^$Router_A_Port$/"
+            }
+          ]
+        }
+      ],
+      "title": "Laser",
+      "transformations": [],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "uxKjWvyVk"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 12,
+        "y": 1
+      },
+      "id": 21,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/^Cisco\\-IOS\\-XR\\-controller\\-optics\\-oper:optics\\-oper/optics\\-ports/optics\\-port/optics\\-info\\.derived_optics_type$/",
+          "values": false
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "measurement": "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"derived_optics_type\" FROM \"Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info\" WHERE (\"source\" =~ /^$Router_A$/ AND \"name\" = 'Optics$Router_A_Port') AND $timeFilter",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "modulation_type"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source",
+              "operator": "=~",
+              "value": "/^$Router_A$/"
+            },
+            {
+              "condition": "AND",
+              "key": "name",
+              "operator": "=",
+              "value": "Optics0/0/0/29"
+            }
+          ]
+        }
+      ],
+      "title": "Optics Type",
+      "transformations": [],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "uxKjWvyVk"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "index": 0,
+                  "text": "DOWN"
+                },
+                "1": {
+                  "index": 1,
+                  "text": "ON"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 15,
+        "y": 1
+      },
+      "id": 27,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/^Cisco\\-IOS\\-XR\\-controller\\-optics\\-oper:optics\\-oper/optics\\-ports/optics\\-port/optics\\-info\\.modulation_type$/",
+          "values": false
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "measurement": "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"modulation_type\" FROM \"Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info\" WHERE (\"source\" =~ /^$Router_A$/ AND \"name\" = 'Optics$Router_A_Port') AND $timeFilter",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "modulation_type"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source",
+              "operator": "=~",
+              "value": "/^$Router_A$/"
+            },
+            {
+              "condition": "AND",
+              "key": "name",
+              "operator": "=",
+              "value": "Optics0/0/0/29"
+            }
+          ]
+        }
+      ],
+      "title": "Modulation Type",
+      "transformations": [],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "Fu844Ms4k"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "THz"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 18,
+        "y": 1
+      },
+      "id": 13,
+      "options": {
+        "colorMode": "none",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "Fu844Ms4k"
+          },
+          "query": "from(bucket: \"telegraf\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info\")\n  |> filter(fn: (r) => r[\"_field\"] == \"dwdm_carrier_frequency\")\n  |> filter(fn: (r) => r[\"name\"] == \"Optics\"+\"${Router_A_Port}\")\n  |> filter(fn: (r) => r[\"source\"] == \"${Router_A}\")\n  ",
+          "refId": "A"
+        }
+      ],
+      "title": "Frequency ",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "number",
+                "targetField": "dwdm_carrier_frequency"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "Fu844Ms4k"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 3,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "nm"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 21,
+        "y": 1
+      },
+      "id": 15,
+      "options": {
+        "colorMode": "none",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "Fu844Ms4k"
+          },
+          "query": "from(bucket: \"telegraf\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info\")\n  |> filter(fn: (r) => r[\"_field\"] == \"dwdm_carrier_wavelength\")\n  |> filter(fn: (r) => r[\"name\"] == \"Optics\"+\"${Router_A_Port}\")\n  |> filter(fn: (r) => r[\"source\"] == \"${Router_A}\")\n  ",
+          "refId": "A"
+        }
+      ],
+      "title": "wavelength ",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "number",
+                "targetField": "dwdm_carrier_wavelength"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "Fu844Ms4k"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "left",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 16,
+            "gradientMode": "hue",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "linearThreshold": 1,
+              "log": 10,
+              "type": "log"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "sci"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 4,
+        "x": 0,
+        "y": 4
+      },
+      "id": 3,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "asc"
+        }
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "Fu844Ms4k"
+          },
+          "query": "from(bucket: \"telegraf\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info\")\n  |> filter(fn: (r) => r[\"_field\"] == \"otu_fec_satistics/pre_fec_ber\")\n  |> filter(fn: (r) => r[\"controller_name\"] == \"CoherentDSP\"+\"${Router_A_Port}\")\n  |> filter(fn: (r) => r[\"source\"] == \"${Router_A}\")\n  |> map(fn: (r) => ({r with _value: float(v: r._value)}))\n  ",
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "Fu844Ms4k"
+          },
+          "hide": false,
+          "query": "from(bucket: \"telegraf\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info\")\n  |> filter(fn: (r) => r[\"_field\"] == \"otu_fec_satistics/post_fec_ber\")\n  |> filter(fn: (r) => r[\"controller_name\"] == \"CoherentDSP\"+\"${Router_A_Port}\")\n  |> filter(fn: (r) => r[\"source\"] == \"${Router_A}\")\n  |> map(fn: (r) => ({r with _value: float(v: r._value)}))\n  ",
+          "refId": "B"
+        }
+      ],
+      "title": "Pre-FEC/Post-FEC",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {}
+            ],
+            "fields": {}
+          }
+        },
+        {
+          "id": "labelsToFields",
+          "options": {}
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "Fu844Ms4k"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 16,
+            "gradientMode": "hue",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "linearThreshold": 1,
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "dBm"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 4,
+        "x": 4,
+        "y": 4
+      },
+      "id": 6,
+      "options": {
+        "legend": {
+          "calcs": [
+            "last"
+          ],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "asc"
+        }
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "Fu844Ms4k"
+          },
+          "query": "from(bucket: \"telegraf\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-lanes/optics-lane\")\n  |> filter(fn: (r) => r[\"_field\"] == \"receive_power\")\n  |> filter(fn: (r) => r[\"name\"] == \"Optics\"+\"${Router_A_Port}\")\n  |> filter(fn: (r) => r[\"source\"] == \"${Router_A}\")\n  |> map(fn: (r) => ({r with _value: r._value / 100}))\n  ",
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "Fu844Ms4k"
+          },
+          "hide": false,
+          "query": "from(bucket: \"telegraf\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-lanes/optics-lane\")\n  |> filter(fn: (r) => r[\"_field\"] == \"transmit_power\")\n  |> filter(fn: (r) => r[\"name\"] == \"Optics\"+\"${Router_A_Port}\")\n  |> filter(fn: (r) => r[\"source\"] == \"${Router_A}\")\n  |> map(fn: (r) => ({r with _value: r._value / 100}))\n  \n  ",
+          "refId": "B"
+        }
+      ],
+      "title": "RX/TX dBm",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {}
+            ],
+            "fields": {}
+          }
+        },
+        {
+          "id": "labelsToFields",
+          "options": {}
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "Fu844Ms4k"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 16,
+            "gradientMode": "hue",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "dB"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 4,
+        "x": 8,
+        "y": 4
+      },
+      "id": 2,
+      "options": {
+        "legend": {
+          "calcs": [
+            "last"
+          ],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "asc"
+        }
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "Fu844Ms4k"
+          },
+          "query": "from(bucket: \"telegraf\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"${otu_pm_path}\")\n  |> filter(fn: (r) => r[\"_field\"] == \"q/average\")\n  |> filter(fn: (r) => r[\"name\"] == \"CoherentDSP\"+\"${Router_A_Port}\")\n  |> filter(fn: (r) => r[\"source\"] == \"${Router_A}\")\n  |> map(fn:(r) => ({ r with _value: float(v: r._value) }))\n  ",
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "Fu844Ms4k"
+          },
+          "hide": true,
+          "query": "import \"strings\"\nfrom(bucket: \"telegraf\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info\")\n  |> filter(fn: (r) => r[\"_field\"] == \"qmargin\")\n  |> filter(fn: (r) => r[\"controller_name\"] == \"CoherentDSP\"+\"${Router_A_Port}\")\n  |> filter(fn: (r) => r[\"source\"] == \"${Router_A}\")\n  |> map(fn: (r) => ({r with _value: strings.trim(v: r._value, cutset: \"dB\")}))",
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "Fu844Ms4k"
+          },
+          "hide": false,
+          "query": "from(bucket: \"telegraf\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"${otu_pm_path}\")\n  |> filter(fn: (r) => r[\"_field\"] == \"qmargin/average\")\n  |> filter(fn: (r) => r[\"name\"] == \"CoherentDSP\"+\"${Router_A_Port}\")\n  |> filter(fn: (r) => r[\"source\"] == \"${Router_A}\")\n  |> map(fn:(r) => ({ r with _value: float(v: r._value) }))\n  ",
+          "refId": "C"
+        }
+      ],
+      "title": "Qmargin/Qfactor dB",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "number",
+                "targetField": "qmargin"
+              }
+            ],
+            "fields": {}
+          }
+        },
+        {
+          "id": "labelsToFields",
+          "options": {}
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "Fu844Ms4k"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 16,
+            "gradientMode": "hue",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "log": 10,
+              "type": "log"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "sci"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 4,
+        "x": 12,
+        "y": 4
+      },
+      "id": 12,
+      "options": {
+        "legend": {
+          "calcs": [
+            "last"
+          ],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "asc"
+        }
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "Fu844Ms4k"
+          },
+          "groupBy": [],
+          "measurement": "Cisco-IOS-XR-pmengine-oper:performance-management/otu/otu-ports/otu-port/otu-current/otu-second30/otu-second30fecs/otu-second30fec",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "from(bucket: \"telegraf\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"${otu_pm_path}\")\n  |> filter(fn: (r) => r[\"_field\"] == \"ec_bits/data\" or r[\"_field\"] == \"uc_words/data\")\n  |> filter(fn: (r) => r[\"name\"] == \"CoherentDSP\"+\"${Router_A_Port}\")\n  |> filter(fn: (r) => r[\"source\"] == \"${Router_A}\")",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "ec_bits/data"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source",
+              "operator": "=~",
+              "value": "/^$Router_A$/"
+            },
+            {
+              "condition": "AND",
+              "key": "name",
+              "operator": "=",
+              "value": "CoherentDSP0/0/0/29"
+            }
+          ]
+        }
+      ],
+      "title": "EC/UC",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [],
+            "fields": {}
+          }
+        },
+        {
+          "id": "labelsToFields",
+          "options": {
+            "mode": "columns"
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "Fu844Ms4k"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 16,
+            "gradientMode": "hue",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "linearThreshold": 1,
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "dB"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 4,
+        "x": 16,
+        "y": 4
+      },
+      "id": 8,
+      "options": {
+        "legend": {
+          "calcs": [
+            "last"
+          ],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "asc"
+        }
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "Fu844Ms4k"
+          },
+          "query": "from(bucket: \"telegraf\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info\")\n  |> filter(fn: (r) => r[\"_field\"] == \"optical_signal_to_noise_ratio\" or r[\"_field\"] == \"snr\" )\n  |> filter(fn: (r) => r[\"name\"] == \"Optics\"+\"${Router_A_Port}\")\n  |> filter(fn: (r) => r[\"source\"] == \"${Router_A}\")\n  |> map(fn:(r) => ({ r with _value: float(v: r._value) }))\n  ",
+          "refId": "A"
+        }
+      ],
+      "title": "OSNR/ESNR dB",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {}
+            ],
+            "fields": {}
+          }
+        },
+        {
+          "id": "labelsToFields",
+          "options": {
+            "mode": "columns"
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "Fu844Ms4k"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 16,
+            "gradientMode": "hue",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "linearThreshold": 1,
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "celsius"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 4,
+        "x": 20,
+        "y": 4
+      },
+      "id": 10,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "asc"
+        }
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "Fu844Ms4k"
+          },
+          "query": "from(bucket: \"telegraf\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info\")\n  |> filter(fn: (r) => r[\"_field\"] == \"lane_data/laser_temperature\")\n  |> filter(fn: (r) => r[\"name\"] == \"Optics\"+\"${Router_A_Port}\")\n  |> filter(fn: (r) => r[\"source\"] == \"${Router_A}\")\n  |> map(fn: (r) => ({r with _value: r._value / 100}))\n  ",
+          "refId": "A"
+        }
+      ],
+      "title": "Temperature ",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {}
+            ],
+            "fields": {}
+          }
+        },
+        {
+          "id": "labelsToFields",
+          "options": {}
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "collapsed": false,
+      "gridPos": {
+        "h": 1,
+        "w": 24,
+        "x": 0,
+        "y": 10
+      },
+      "id": 37,
+      "panels": [],
+      "title": "$Router_B $Router_B_Port",
+      "type": "row"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "uxKjWvyVk"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "tas-ui-is": {
+                  "color": "green",
+                  "index": 0,
+                  "text": "In Service"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "pattern": ".*",
+                "result": {
+                  "color": "yellow",
+                  "index": 1
+                }
+              },
+              "type": "regex"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 0,
+        "y": 11
+      },
+      "id": 30,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/^Cisco\\-IOS\\-XR\\-controller\\-optics\\-oper:optics\\-oper/optics\\-ports/optics\\-port/optics\\-info\\.transport_admin_state$/",
+          "values": false
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "query": "SELECT \"transport_admin_state\" FROM \"Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info\" WHERE (\"source\" =~ /^$Router_B$/ AND \"name\" = 'Optics$Router_B_Port' ) AND $timeFilter",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "Transport Admin State",
+      "transformations": [],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "uxKjWvyVk"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "green-on": {
+                  "color": "green",
+                  "index": 0,
+                  "text": "Green"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "pattern": ".*",
+                "result": {
+                  "color": "yellow",
+                  "index": 1
+                }
+              },
+              "type": "regex"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              },
+              {
+                "color": "#EAB839",
+                "value": 90
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 3,
+        "y": 11
+      },
+      "id": 25,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/^Cisco\\-IOS\\-XR\\-controller\\-optics\\-oper:optics\\-oper/optics\\-ports/optics\\-port/optics\\-info\\.led_state$/",
+          "values": false
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "measurement": "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"led_state\" FROM \"Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info\" WHERE (\"source\" =~ /^$Router_B$/ AND \"name\" = 'Optics$Router_B_Port' ) AND $timeFilter",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "led_state"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source",
+              "operator": "=~",
+              "value": "/^$Router_A$/"
+            },
+            {
+              "condition": "AND",
+              "key": "name",
+              "operator": "=~",
+              "value": "/^$Router_A_Port$/"
+            }
+          ]
+        }
+      ],
+      "title": "LED",
+      "transformations": [],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "uxKjWvyVk"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "optics-state-up": {
+                  "color": "green",
+                  "index": 0,
+                  "text": "UP"
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "pattern": ".*",
+                "result": {
+                  "color": "yellow",
+                  "index": 1
+                }
+              },
+              "type": "regex"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 6,
+        "y": 11
+      },
+      "id": 28,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/^Cisco\\-IOS\\-XR\\-controller\\-optics\\-oper:optics\\-oper/optics\\-ports/optics\\-port/optics\\-info\\.controller_state$/",
+          "values": false
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "query": "SELECT \"controller_state\" FROM \"Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info\" WHERE (\"source\" =~ /^$Router_B$/ AND \"name\" = 'Optics$Router_B_Port' ) AND $timeFilter",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series"
+        }
+      ],
+      "title": "Optic Controller",
+      "transformations": [],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "uxKjWvyVk"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "on": {
+                  "color": "green",
+                  "index": 0
+                }
+              },
+              "type": "value"
+            },
+            {
+              "options": {
+                "pattern": ".*",
+                "result": {
+                  "color": "yellow",
+                  "index": 1
+                }
+              },
+              "type": "regex"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              },
+              {
+                "color": "#EAB839",
+                "value": 90
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 9,
+        "y": 11
+      },
+      "id": 32,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/^Cisco\\-IOS\\-XR\\-controller\\-optics\\-oper:optics\\-oper/optics\\-ports/optics\\-port/optics\\-info\\.laser_state$/",
+          "values": false
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "measurement": "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"laser_state\" FROM \"Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info\" WHERE (\"source\" =~ /^$Router_B$/ AND \"name\" = 'Optics$Router_B_Port' ) AND $timeFilter",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "led_state"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source",
+              "operator": "=~",
+              "value": "/^$Router_A$/"
+            },
+            {
+              "condition": "AND",
+              "key": "name",
+              "operator": "=~",
+              "value": "/^$Router_A_Port$/"
+            }
+          ]
+        }
+      ],
+      "title": "Laser",
+      "transformations": [],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "uxKjWvyVk"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 12,
+        "y": 11
+      },
+      "id": 26,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/^Cisco\\-IOS\\-XR\\-controller\\-optics\\-oper:optics\\-oper/optics\\-ports/optics\\-port/optics\\-info\\.derived_optics_type$/",
+          "values": false
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "measurement": "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"derived_optics_type\" FROM \"Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info\" WHERE (\"source\" =~ /^$Router_B$/ AND \"name\" = 'Optics$Router_B_Port') AND $timeFilter",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "modulation_type"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source",
+              "operator": "=~",
+              "value": "/^$Router_A$/"
+            },
+            {
+              "condition": "AND",
+              "key": "name",
+              "operator": "=",
+              "value": "Optics0/0/0/29"
+            }
+          ]
+        }
+      ],
+      "title": "Optics Type",
+      "transformations": [],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "uxKjWvyVk"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [
+            {
+              "options": {
+                "0": {
+                  "index": 0,
+                  "text": "DOWN"
+                },
+                "1": {
+                  "index": 1,
+                  "text": "ON"
+                }
+              },
+              "type": "value"
+            }
+          ],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 15,
+        "y": 11
+      },
+      "id": 22,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "/^Cisco\\-IOS\\-XR\\-controller\\-optics\\-oper:optics\\-oper/optics\\-ports/optics\\-port/optics\\-info\\.modulation_type$/",
+          "values": false
+        },
+        "textMode": "value"
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "measurement": "Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"modulation_type\" FROM \"Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info\" WHERE (\"source\" =~ /^$Router_B$/ AND \"name\" = 'Optics$Router_B_Port') AND $timeFilter",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "modulation_type"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source",
+              "operator": "=~",
+              "value": "/^$Router_A$/"
+            },
+            {
+              "condition": "AND",
+              "key": "name",
+              "operator": "=",
+              "value": "Optics0/0/0/29"
+            }
+          ]
+        }
+      ],
+      "title": "Modulation Type",
+      "transformations": [],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "Fu844Ms4k"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "THz"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 18,
+        "y": 11
+      },
+      "id": 14,
+      "options": {
+        "colorMode": "none",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "Fu844Ms4k"
+          },
+          "query": "from(bucket: \"telegraf\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info\")\n  |> filter(fn: (r) => r[\"_field\"] == \"dwdm_carrier_frequency\")\n  |> filter(fn: (r) => r[\"name\"] == \"Optics\"+\"${Router_B_Port}\")\n  |> filter(fn: (r) => r[\"source\"] == \"${Router_B}\")\n  ",
+          "refId": "A"
+        }
+      ],
+      "title": "Frequency ",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "number",
+                "targetField": "dwdm_carrier_frequency"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "Fu844Ms4k"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 3,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "nm"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 3,
+        "x": 21,
+        "y": 11
+      },
+      "id": 16,
+      "options": {
+        "colorMode": "none",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "Fu844Ms4k"
+          },
+          "query": "from(bucket: \"telegraf\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info\")\n  |> filter(fn: (r) => r[\"_field\"] == \"dwdm_carrier_wavelength\")\n  |> filter(fn: (r) => r[\"name\"] == \"Optics\"+\"${Router_B_Port}\")\n  |> filter(fn: (r) => r[\"source\"] == \"${Router_B}\")\n  ",
+          "refId": "A"
+        }
+      ],
+      "title": "wavelength ",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "number",
+                "targetField": "dwdm_carrier_wavelength"
+              }
+            ],
+            "fields": {}
+          }
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "Fu844Ms4k"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 16,
+            "gradientMode": "hue",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "linearThreshold": 1,
+              "log": 10,
+              "type": "log"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "sci"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 4,
+        "x": 0,
+        "y": 14
+      },
+      "id": 5,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "asc"
+        }
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "Fu844Ms4k"
+          },
+          "query": "from(bucket: \"telegraf\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info\")\n  |> filter(fn: (r) => r[\"_field\"] == \"otu_fec_satistics/pre_fec_ber\")\n  |> filter(fn: (r) => r[\"controller_name\"] == \"CoherentDSP\"+\"${Router_B_Port}\")\n  |> filter(fn: (r) => r[\"source\"] == \"${Router_B}\")\n  |> map(fn: (r) => ({r with _value: float(v: r._value)}))\n  ",
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "Fu844Ms4k"
+          },
+          "hide": false,
+          "query": "from(bucket: \"telegraf\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info\")\n  |> filter(fn: (r) => r[\"_field\"] == \"otu_fec_satistics/post_fec_ber\")\n  |> filter(fn: (r) => r[\"controller_name\"] == \"CoherentDSP\"+\"${Router_B_Port}\")\n  |> filter(fn: (r) => r[\"source\"] == \"${Router_B}\")\n  |> map(fn: (r) => ({r with _value: float(v: r._value)}))\n  ",
+          "refId": "B"
+        }
+      ],
+      "title": "Pre-FEC/Post-FEC",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {}
+            ],
+            "fields": {}
+          }
+        },
+        {
+          "id": "labelsToFields",
+          "options": {}
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "Fu844Ms4k"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 16,
+            "gradientMode": "hue",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "linearThreshold": 1,
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "dBm"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 4,
+        "x": 4,
+        "y": 14
+      },
+      "id": 7,
+      "options": {
+        "legend": {
+          "calcs": [
+            "last"
+          ],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "asc"
+        }
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "Fu844Ms4k"
+          },
+          "query": "from(bucket: \"telegraf\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-lanes/optics-lane\")\n  |> filter(fn: (r) => r[\"_field\"] == \"receive_power\")\n  |> filter(fn: (r) => r[\"name\"] == \"Optics\"+\"${Router_B_Port}\")\n  |> filter(fn: (r) => r[\"source\"] == \"${Router_B}\")\n  |> map(fn: (r) => ({r with _value: r._value / 100}))\n  ",
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "Fu844Ms4k"
+          },
+          "hide": false,
+          "query": "from(bucket: \"telegraf\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-lanes/optics-lane\")\n  |> filter(fn: (r) => r[\"_field\"] == \"transmit_power\")\n  |> filter(fn: (r) => r[\"name\"] == \"Optics\"+\"${Router_B_Port}\")\n  |> filter(fn: (r) => r[\"source\"] == \"${Router_B}\")\n  |> map(fn: (r) => ({r with _value: r._value / 100}))\n  \n  ",
+          "refId": "B"
+        }
+      ],
+      "title": "RX/TX dBm",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {}
+            ],
+            "fields": {}
+          }
+        },
+        {
+          "id": "labelsToFields",
+          "options": {}
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "Fu844Ms4k"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 16,
+            "gradientMode": "hue",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "dB"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 4,
+        "x": 8,
+        "y": 14
+      },
+      "id": 35,
+      "options": {
+        "legend": {
+          "calcs": [
+            "last"
+          ],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "asc"
+        }
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "Fu844Ms4k"
+          },
+          "query": "from(bucket: \"telegraf\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"${otu_pm_path}\")\n  |> filter(fn: (r) => r[\"_field\"] == \"q/average\")\n  |> filter(fn: (r) => r[\"name\"] == \"CoherentDSP\"+\"${Router_B_Port}\")\n  |> filter(fn: (r) => r[\"source\"] == \"${Router_B}\")\n  |> map(fn:(r) => ({ r with _value: float(v: r._value) }))\n  ",
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "Fu844Ms4k"
+          },
+          "hide": true,
+          "query": "import \"strings\"\nfrom(bucket: \"telegraf\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info\")\n  |> filter(fn: (r) => r[\"_field\"] == \"qmargin\")\n  |> filter(fn: (r) => r[\"controller_name\"] == \"CoherentDSP\"+\"${Router_B_Port}\")\n  |> filter(fn: (r) => r[\"source\"] == \"${Router_B}\")\n  |> map(fn: (r) => ({r with _value: strings.trim(v: r._value, cutset: \"dB\")}))",
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "Fu844Ms4k"
+          },
+          "hide": false,
+          "query": "from(bucket: \"telegraf\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"${otu_pm_path}\")\n  |> filter(fn: (r) => r[\"_field\"] == \"qmargin/average\")\n  |> filter(fn: (r) => r[\"name\"] == \"CoherentDSP\"+\"${Router_A_Port}\")\n  |> filter(fn: (r) => r[\"source\"] == \"${Router_A}\")\n  |> map(fn:(r) => ({ r with _value: float(v: r._value) }))\n  ",
+          "refId": "C"
+        }
+      ],
+      "title": "Qmargin/Qfactor dB",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {
+                "destinationType": "number",
+                "targetField": "qmargin"
+              }
+            ],
+            "fields": {}
+          }
+        },
+        {
+          "id": "labelsToFields",
+          "options": {}
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "Fu844Ms4k"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 16,
+            "gradientMode": "hue",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "log": 10,
+              "type": "log"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "sci"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 4,
+        "x": 12,
+        "y": 14
+      },
+      "id": 34,
+      "options": {
+        "legend": {
+          "calcs": [
+            "last"
+          ],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "asc"
+        }
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "Fu844Ms4k"
+          },
+          "groupBy": [],
+          "measurement": "Cisco-IOS-XR-pmengine-oper:performance-management/otu/otu-ports/otu-port/otu-current/otu-second30/otu-second30fecs/otu-second30fec",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "from(bucket: \"telegraf\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"${otu_pm_path}\")\n  |> filter(fn: (r) => r[\"_field\"] == \"ec_bits/data\" or r[\"_field\"] == \"uc_words/data\")\n  |> filter(fn: (r) => r[\"name\"] == \"CoherentDSP\"+\"${Router_B_Port}\")\n  |> filter(fn: (r) => r[\"source\"] == \"${Router_B}\")",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "ec_bits/data"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "key": "source",
+              "operator": "=~",
+              "value": "/^$Router_A$/"
+            },
+            {
+              "condition": "AND",
+              "key": "name",
+              "operator": "=",
+              "value": "CoherentDSP0/0/0/29"
+            }
+          ]
+        }
+      ],
+      "title": "EC/UC",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [],
+            "fields": {}
+          }
+        },
+        {
+          "id": "labelsToFields",
+          "options": {
+            "mode": "columns"
+          }
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "Fu844Ms4k"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 16,
+            "gradientMode": "hue",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "linearThreshold": 1,
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "dB"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 4,
+        "x": 16,
+        "y": 14
+      },
+      "id": 9,
+      "options": {
+        "legend": {
+          "calcs": [
+            "last"
+          ],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "asc"
+        }
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "Fu844Ms4k"
+          },
+          "query": "from(bucket: \"telegraf\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info\")\n  |> filter(fn: (r) => r[\"_field\"] == \"optical_signal_to_noise_ratio\" or r[\"_field\"] == \"snr\" )\n  |> filter(fn: (r) => r[\"name\"] == \"Optics\"+\"${Router_B_Port}\")\n  |> filter(fn: (r) => r[\"source\"] == \"${Router_B}\")\n  |> map(fn:(r) => ({ r with _value: float(v: r._value) }))\n  ",
+          "refId": "A"
+        }
+      ],
+      "title": "OSNR/ESNR dB",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {}
+            ],
+            "fields": {}
+          }
+        },
+        {
+          "id": "labelsToFields",
+          "options": {}
+        }
+      ],
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "Fu844Ms4k"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 16,
+            "gradientMode": "hue",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineStyle": {
+              "fill": "solid"
+            },
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "linearThreshold": 1,
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "celsius"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 6,
+        "w": 4,
+        "x": 20,
+        "y": 14
+      },
+      "id": 11,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "asc"
+        }
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "Fu844Ms4k"
+          },
+          "query": "from(bucket: \"telegraf\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"Cisco-IOS-XR-controller-optics-oper:optics-oper/optics-ports/optics-port/optics-info\")\n  |> filter(fn: (r) => r[\"_field\"] == \"lane_data/laser_temperature\")\n  |> filter(fn: (r) => r[\"name\"] == \"Optics\"+\"${Router_B_Port}\")\n  |> filter(fn: (r) => r[\"source\"] == \"${Router_B}\")\n  |> map(fn: (r) => ({r with _value: r._value / 100}))\n  ",
+          "refId": "A"
+        }
+      ],
+      "title": "Temperature ",
+      "transformations": [
+        {
+          "id": "convertFieldType",
+          "options": {
+            "conversions": [
+              {}
+            ],
+            "fields": {}
+          }
+        },
+        {
+          "id": "labelsToFields",
+          "options": {}
+        }
+      ],
+      "type": "timeseries"
+    }
+  ],
+  "refresh": "5s",
+  "revision": 1,
+  "schemaVersion": 38,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": false,
+          "text": "8201-32FH-1",
+          "value": "8201-32FH-1"
+        },
+        "datasource": {
+          "type": "influxdb",
+          "uid": "Fu844Ms4k"
+        },
+        "definition": "import \"influxdata/influxdb/schema\"\n\nschema.measurementTagValues(bucket: \"telegraf\", measurement: \"Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info\", tag: \"source\")",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Router A",
+        "multi": false,
+        "name": "Router_A",
+        "options": [],
+        "query": "import \"influxdata/influxdb/schema\"\n\nschema.measurementTagValues(bucket: \"telegraf\", measurement: \"Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info\", tag: \"source\")",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "0/0/0/29",
+          "value": "0/0/0/29"
+        },
+        "datasource": {
+          "type": "influxdb",
+          "uid": "uxKjWvyVk"
+        },
+        "definition": "SHOW TAG VALUES FROM \"Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info\" WITH KEY=\"controller_name\"  WHERE source =~ /$Router_A/ ",
+        "hide": 1,
+        "includeAll": false,
+        "label": "Router A Port",
+        "multi": false,
+        "name": "Router_A_Port",
+        "options": [],
+        "query": "SHOW TAG VALUES FROM \"Cisco-IOS-XR-controller-otu-oper:otu/controllers/controller/info\" WITH KEY=\"controller_name\"  WHERE source =~ /$Router_A/ ",
+        "refresh": 1,
+        "regex": "/CoherentDSP(.*)/",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "8201-32FH-2",
+          "value": "8201-32FH-2"
+        },
+        "datasource": {
+          "type": "influxdb",
+          "uid": "Fu844Ms4k"
+        },
+        "definition": "from(bucket: \"telegraf\")\n  |> range(start: 0, stop: now())\n  |> filter(fn: (r) => r[\"_measurement\"] == \"openconfig-lldp:lldp/interfaces/interface/neighbors/neighbor\")\n  |> filter(fn: (r) => r[\"name\"] == \"${router_a_interface_id}\")\n  |> filter(fn: (r) => r[\"_field\"] == \"state/system_name\")\n  |> filter(fn: (r) => r[\"source\"] == \"${Router_A}\")",
+        "hide": 0,
+        "includeAll": false,
+        "label": "Router_B",
+        "multi": false,
+        "name": "Router_B",
+        "options": [],
+        "query": "from(bucket: \"telegraf\")\n  |> range(start: 0, stop: now())\n  |> filter(fn: (r) => r[\"_measurement\"] == \"openconfig-lldp:lldp/interfaces/interface/neighbors/neighbor\")\n  |> filter(fn: (r) => r[\"name\"] == \"${router_a_interface_id}\")\n  |> filter(fn: (r) => r[\"_field\"] == \"state/system_name\")\n  |> filter(fn: (r) => r[\"source\"] == \"${Router_A}\")",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "0/0/0/29",
+          "value": "0/0/0/29"
+        },
+        "datasource": {
+          "type": "influxdb",
+          "uid": "Fu844Ms4k"
+        },
+        "definition": "\n  from(bucket: \"telegraf\")\n  |> range(start: 0, stop: now())\n  |> filter(fn: (r) => r[\"_measurement\"] == \"openconfig-lldp:lldp/interfaces/interface/neighbors/neighbor\")\n  |> filter(fn: (r) => r[\"name\"] == \"${router_a_interface_id}\")\n  |> filter(fn: (r) => r[\"_field\"] == \"state/port_id\")\n  |> filter(fn: (r) => r[\"source\"] == \"${Router_A}\")",
+        "hide": 0,
+        "includeAll": false,
+        "multi": false,
+        "name": "Router_B_Port",
+        "options": [],
+        "query": "\n  from(bucket: \"telegraf\")\n  |> range(start: 0, stop: now())\n  |> filter(fn: (r) => r[\"_measurement\"] == \"openconfig-lldp:lldp/interfaces/interface/neighbors/neighbor\")\n  |> filter(fn: (r) => r[\"name\"] == \"${router_a_interface_id}\")\n  |> filter(fn: (r) => r[\"_field\"] == \"state/port_id\")\n  |> filter(fn: (r) => r[\"source\"] == \"${Router_A}\")",
+        "refresh": 1,
+        "regex": "/[a-zA-Z]+(?<text>[^]+)/g",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "0/0/0/29",
+          "value": "0/0/0/29"
+        },
+        "datasource": {
+          "type": "influxdb",
+          "uid": "Fu844Ms4k"
+        },
+        "definition": "from(bucket: \"telegraf\")\n  |> range(start: 0, stop: now())\n  |> filter(fn: (r) => r[\"_measurement\"] == \"topology-1\")\n  |> filter(fn: (r) => r[\"Source\"] == \"${Router_A}\")\n  |> filter(fn: (r) => r[\"Source_Port\"] == \"${Router_A_Port}\")\n  |> filter(fn: (r) => r[\"_field\"] == \"Dest_Port\")",
+        "hide": 2,
+        "includeAll": false,
+        "label": "Router_B_Port_BAK",
+        "multi": false,
+        "name": "Router_B_Port_BAK",
+        "options": [],
+        "query": "from(bucket: \"telegraf\")\n  |> range(start: 0, stop: now())\n  |> filter(fn: (r) => r[\"_measurement\"] == \"topology-1\")\n  |> filter(fn: (r) => r[\"Source\"] == \"${Router_A}\")\n  |> filter(fn: (r) => r[\"Source_Port\"] == \"${Router_A_Port}\")\n  |> filter(fn: (r) => r[\"_field\"] == \"Dest_Port\")",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "hour24",
+          "value": "hour24"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "PM Time Range",
+        "multi": false,
+        "name": "pm_time_range",
+        "options": [
+          {
+            "selected": false,
+            "text": "second30",
+            "value": "second30"
+          },
+          {
+            "selected": false,
+            "text": "minute15",
+            "value": "minute15"
+          },
+          {
+            "selected": true,
+            "text": "hour24",
+            "value": "hour24"
+          }
+        ],
+        "query": "second30,minute15,hour24",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "Cisco-IOS-XR-pmengine-oper:performance-management/otu/otu-ports/otu-port/otu-current/otu-hour24/otu-hour24fecs/otu-hour24fec",
+          "value": "Cisco-IOS-XR-pmengine-oper:performance-management/otu/otu-ports/otu-port/otu-current/otu-hour24/otu-hour24fecs/otu-hour24fec"
+        },
+        "datasource": {
+          "type": "influxdb",
+          "uid": "Fu844Ms4k"
+        },
+        "definition": "import \"influxdata/influxdb/schema\"\nschema.measurements(bucket: \"telegraf\")",
+        "hide": 2,
+        "includeAll": false,
+        "multi": false,
+        "name": "otu_pm_path",
+        "options": [],
+        "query": "import \"influxdata/influxdb/schema\"\nschema.measurements(bucket: \"telegraf\")",
+        "refresh": 2,
+        "regex": "/$pm_time_range+fec$/",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "FourHundredGigE0/0/0/29",
+          "value": "FourHundredGigE0/0/0/29"
+        },
+        "datasource": {
+          "type": "influxdb",
+          "uid": "uxKjWvyVk"
+        },
+        "definition": "SHOW TAG VALUES FROM \"openconfig-lldp:lldp/interfaces/interface/neighbors/neighbor\" WITH KEY=\"name\"  WHERE source =~ /$Router_A/",
+        "hide": 2,
+        "includeAll": false,
+        "label": "Router A Interface ID",
+        "multi": false,
+        "name": "router_a_interface_id",
+        "options": [],
+        "query": "SHOW TAG VALUES FROM \"openconfig-lldp:lldp/interfaces/interface/neighbors/neighbor\" WITH KEY=\"name\"  WHERE source =~ /$Router_A/",
+        "refresh": 1,
+        "regex": "/$Router_A_Port$/",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      },
+      {
+        "current": {
+          "selected": false,
+          "text": "FourHundredGigE0/0/0/29",
+          "value": "FourHundredGigE0/0/0/29"
+        },
+        "datasource": {
+          "type": "influxdb",
+          "uid": "Fu844Ms4k"
+        },
+        "definition": "\n  from(bucket: \"telegraf\")\n  |> range(start: 0, stop: now())\n  |> filter(fn: (r) => r[\"_measurement\"] == \"openconfig-lldp:lldp/interfaces/interface/neighbors/neighbor\")\n  |> filter(fn: (r) => r[\"name\"] == \"${router_a_interface_id}\")\n  |> filter(fn: (r) => r[\"_field\"] == \"state/port_id\")\n  |> filter(fn: (r) => r[\"source\"] == \"${Router_A}\")",
+        "hide": 2,
+        "includeAll": false,
+        "multi": false,
+        "name": "router_b_interface_id",
+        "options": [],
+        "query": "\n  from(bucket: \"telegraf\")\n  |> range(start: 0, stop: now())\n  |> filter(fn: (r) => r[\"_measurement\"] == \"openconfig-lldp:lldp/interfaces/interface/neighbors/neighbor\")\n  |> filter(fn: (r) => r[\"name\"] == \"${router_a_interface_id}\")\n  |> filter(fn: (r) => r[\"_field\"] == \"state/port_id\")\n  |> filter(fn: (r) => r[\"source\"] == \"${Router_A}\")",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-1h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "400G ZR",
+  "uid": "97MXjoy4z",
+  "version": 159,
+  "weekStart": ""
+}

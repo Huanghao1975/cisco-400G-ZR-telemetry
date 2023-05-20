@@ -1,0 +1,2507 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "grafana",
+          "uid": "-- Grafana --"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 3,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "uxKjWvyVk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 16,
+        "w": 18,
+        "x": 0,
+        "y": 0
+      },
+      "id": 5,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "center",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "alias": "IPv4 LPM",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"npu_hwr/bank/counter/inuse_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH-2' AND \"resource\" = 'lpm-tcam' AND \"npu_hwr/npu_id\" = '0' AND \"npu_hwr/bank/bank_id\" = '1') AND $timeFilter",
+          "rawQuery": false,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/inuse_entries"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "source",
+              "operator": "=",
+              "value": "8201-32FH-2"
+            },
+            {
+              "condition": "AND",
+              "key": "resource",
+              "operator": "=",
+              "value": "lpm-tcam"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/npu_id",
+              "operator": "=",
+              "value": "0"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/bank/bank_id",
+              "operator": "=",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "alias": "IPv6 LPM",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"npu_hwr/bank/counter/inuse_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH-2' AND \"resource\" = 'lpm-tcam' AND \"npu_hwr/npu_id\" = '0' AND \"npu_hwr/bank/bank_id\" = '2') AND $timeFilter",
+          "rawQuery": false,
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/inuse_entries"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "source",
+              "operator": "=",
+              "value": "8201-32FH-2"
+            },
+            {
+              "condition": "AND",
+              "key": "resource",
+              "operator": "=",
+              "value": "lpm-tcam"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/npu_id",
+              "operator": "=",
+              "value": "0"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/bank/bank_id",
+              "operator": "=",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "alias": "Stage2 ECMP GROUP",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"npu_hwr/bank/counter/inuse_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH-2' AND \"resource\" = 'stage2-lb-group' AND \"npu_hwr/npu_id\" = '0' AND \"npu_hwr/bank/bank_id\" = '0') AND $timeFilter",
+          "rawQuery": false,
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/inuse_entries"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "source",
+              "operator": "=",
+              "value": "8201-32FH-2"
+            },
+            {
+              "condition": "AND",
+              "key": "resource",
+              "operator": "=",
+              "value": "stage2-lb-group"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/npu_id",
+              "operator": "=",
+              "value": "0"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/bank/bank_id",
+              "operator": "=",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "alias": "Stage1 ECMP GROUP",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"npu_hwr/bank/counter/inuse_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH-2' AND \"resource\" = 'stage2-lb-group' AND \"npu_hwr/npu_id\" = '0') AND $timeFilter",
+          "rawQuery": false,
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/inuse_entries"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "source",
+              "operator": "=",
+              "value": "8201-32FH-2"
+            },
+            {
+              "condition": "AND",
+              "key": "resource",
+              "operator": "=",
+              "value": "stage1-lb-group"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/npu_id",
+              "operator": "=",
+              "value": "0"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/bank/bank_id",
+              "operator": "=",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "alias": "Stage1 ECMP Member",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"npu_hwr/bank/counter/inuse_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH-2' AND \"resource\" = 'stage2-lb-group' AND \"npu_hwr/npu_id\" = '0') AND $timeFilter",
+          "rawQuery": false,
+          "refId": "E",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/inuse_entries"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "source",
+              "operator": "=",
+              "value": "8201-32FH-2"
+            },
+            {
+              "condition": "AND",
+              "key": "resource",
+              "operator": "=",
+              "value": "stage1-lb-member"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/npu_id",
+              "operator": "=",
+              "value": "0"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/bank/bank_id",
+              "operator": "=",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "alias": "Stage2 ECMP Member",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"npu_hwr/bank/counter/inuse_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH-2' AND \"resource\" = 'stage2-lb-group' AND \"npu_hwr/npu_id\" = '0') AND $timeFilter",
+          "rawQuery": false,
+          "refId": "F",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/inuse_entries"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "source",
+              "operator": "=",
+              "value": "8201-32FH-2"
+            },
+            {
+              "condition": "AND",
+              "key": "resource",
+              "operator": "=",
+              "value": "stage2-lb-member"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/npu_id",
+              "operator": "=",
+              "value": "0"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/bank/bank_id",
+              "operator": "=",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "alias": "CEM",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$interval"
+              ],
+              "type": "time"
+            }
+          ],
+          "hide": false,
+          "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"npu_hwr/bank/counter/inuse_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH-2' AND \"resource\" = 'stage2-lb-group' AND \"npu_hwr/npu_id\" = '0') AND $timeFilter",
+          "rawQuery": false,
+          "refId": "G",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/lt_hwr/hw_entries"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "sum"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "source",
+              "operator": "=",
+              "value": "8201-32FH-2"
+            },
+            {
+              "condition": "AND",
+              "key": "resource",
+              "operator": "=",
+              "value": "central-em"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/npu_id",
+              "operator": "=",
+              "value": "0"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/bank/bank_id",
+              "operator": "=",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "alias": "Egress Small Encap SP0",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"npu_hwr/bank/counter/inuse_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH-2' AND \"resource\" = 'stage2-lb-group' AND \"npu_hwr/npu_id\" = '0') AND $timeFilter",
+          "rawQuery": false,
+          "refId": "J",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/inuse_entries"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "source",
+              "operator": "=",
+              "value": "8201-32FH-2"
+            },
+            {
+              "condition": "AND",
+              "key": "resource",
+              "operator": "=",
+              "value": "egress-small-encap"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/npu_id",
+              "operator": "=",
+              "value": "0"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/bank/bank_id",
+              "operator": "=",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "alias": "Egress Small Encap SP1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"npu_hwr/bank/counter/inuse_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH-2' AND \"resource\" = 'stage2-lb-group' AND \"npu_hwr/npu_id\" = '0') AND $timeFilter",
+          "rawQuery": false,
+          "refId": "I",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/inuse_entries"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "source",
+              "operator": "=",
+              "value": "8201-32FH-2"
+            },
+            {
+              "condition": "AND",
+              "key": "resource",
+              "operator": "=",
+              "value": "egress-small-encap"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/npu_id",
+              "operator": "=",
+              "value": "0"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/bank/bank_id",
+              "operator": "=",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "alias": "Egress Small Encap SP2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"npu_hwr/bank/counter/inuse_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH-2' AND \"resource\" = 'stage2-lb-group' AND \"npu_hwr/npu_id\" = '0') AND $timeFilter",
+          "rawQuery": false,
+          "refId": "K",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/inuse_entries"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "source",
+              "operator": "=",
+              "value": "8201-32FH-2"
+            },
+            {
+              "condition": "AND",
+              "key": "resource",
+              "operator": "=",
+              "value": "egress-small-encap"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/npu_id",
+              "operator": "=",
+              "value": "0"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/bank/bank_id",
+              "operator": "=",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "alias": "Egress Large Encap SP0",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"npu_hwr/bank/counter/inuse_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH-2' AND \"resource\" = 'stage2-lb-group' AND \"npu_hwr/npu_id\" = '0') AND $timeFilter",
+          "rawQuery": false,
+          "refId": "O",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/inuse_entries"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "source",
+              "operator": "=",
+              "value": "8201-32FH-2"
+            },
+            {
+              "condition": "AND",
+              "key": "resource",
+              "operator": "=",
+              "value": "egress-large-encap"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/npu_id",
+              "operator": "=",
+              "value": "0"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/bank/bank_id",
+              "operator": "=",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "alias": "Egress Large Encap SP1",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"npu_hwr/bank/counter/inuse_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH-2' AND \"resource\" = 'stage2-lb-group' AND \"npu_hwr/npu_id\" = '0') AND $timeFilter",
+          "rawQuery": false,
+          "refId": "L",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/inuse_entries"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "source",
+              "operator": "=",
+              "value": "8201-32FH-2"
+            },
+            {
+              "condition": "AND",
+              "key": "resource",
+              "operator": "=",
+              "value": "egress-large-encap"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/npu_id",
+              "operator": "=",
+              "value": "0"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/bank/bank_id",
+              "operator": "=",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "alias": "Egress Large Encap SP2",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"npu_hwr/bank/counter/inuse_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH-2' AND \"resource\" = 'stage2-lb-group' AND \"npu_hwr/npu_id\" = '0') AND $timeFilter",
+          "rawQuery": false,
+          "refId": "M",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/inuse_entries"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "source",
+              "operator": "=",
+              "value": "8201-32FH-2"
+            },
+            {
+              "condition": "AND",
+              "key": "resource",
+              "operator": "=",
+              "value": "egress-large-encap"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/npu_id",
+              "operator": "=",
+              "value": "0"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/bank/bank_id",
+              "operator": "=",
+              "value": "3"
+            }
+          ]
+        }
+      ],
+      "title": "Cisco 8000 NPU Resource",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "uxKjWvyVk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "left",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "log": 2,
+              "type": "log"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 16,
+        "w": 18,
+        "x": 0,
+        "y": 16
+      },
+      "id": 7,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "alias": "IPv4 LPM",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"npu_hwr/bank/counter/inuse_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH-2' AND \"resource\" = 'lpm-tcam' AND \"npu_hwr/npu_id\" = '0' AND \"npu_hwr/bank/bank_id\" = '1') AND $timeFilter",
+          "rawQuery": false,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/inuse_entries"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "source",
+              "operator": "=",
+              "value": "8201-32FH-2"
+            },
+            {
+              "condition": "AND",
+              "key": "resource",
+              "operator": "=",
+              "value": "lpm-tcam"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/npu_id",
+              "operator": "=",
+              "value": "0"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/bank/bank_id",
+              "operator": "=",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "alias": "IPv6 LPM",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"npu_hwr/bank/counter/inuse_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH-2' AND \"resource\" = 'lpm-tcam' AND \"npu_hwr/npu_id\" = '0' AND \"npu_hwr/bank/bank_id\" = '2') AND $timeFilter",
+          "rawQuery": false,
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/inuse_entries"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "source",
+              "operator": "=",
+              "value": "8201-32FH-2"
+            },
+            {
+              "condition": "AND",
+              "key": "resource",
+              "operator": "=",
+              "value": "lpm-tcam"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/npu_id",
+              "operator": "=",
+              "value": "0"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/bank/bank_id",
+              "operator": "=",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "alias": "CEM",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [
+            {
+              "params": [
+                "$interval"
+              ],
+              "type": "time"
+            }
+          ],
+          "hide": false,
+          "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"npu_hwr/bank/counter/inuse_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH-2' AND \"resource\" = 'stage2-lb-group' AND \"npu_hwr/npu_id\" = '0') AND $timeFilter",
+          "rawQuery": false,
+          "refId": "G",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/lt_hwr/hw_entries"
+                ],
+                "type": "field"
+              },
+              {
+                "params": [],
+                "type": "sum"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "source",
+              "operator": "=",
+              "value": "8201-32FH-2"
+            },
+            {
+              "condition": "AND",
+              "key": "resource",
+              "operator": "=",
+              "value": "central-em"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/npu_id",
+              "operator": "=",
+              "value": "0"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/bank/bank_id",
+              "operator": "=",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "alias": "Stage1 ECMP GROUP",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"npu_hwr/bank/counter/inuse_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH-2' AND \"resource\" = 'stage2-lb-group' AND \"npu_hwr/npu_id\" = '0') AND $timeFilter",
+          "rawQuery": false,
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/inuse_entries"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "source",
+              "operator": "=",
+              "value": "8201-32FH-2"
+            },
+            {
+              "condition": "AND",
+              "key": "resource",
+              "operator": "=",
+              "value": "stage1-lb-group"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/npu_id",
+              "operator": "=",
+              "value": "0"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/bank/bank_id",
+              "operator": "=",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "alias": "Stage1 ECMP Member",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"npu_hwr/bank/counter/inuse_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH-2' AND \"resource\" = 'stage2-lb-group' AND \"npu_hwr/npu_id\" = '0') AND $timeFilter",
+          "rawQuery": false,
+          "refId": "E",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/inuse_entries"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "source",
+              "operator": "=",
+              "value": "8201-32FH-2"
+            },
+            {
+              "condition": "AND",
+              "key": "resource",
+              "operator": "=",
+              "value": "stage1-lb-member"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/npu_id",
+              "operator": "=",
+              "value": "0"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/bank/bank_id",
+              "operator": "=",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "alias": "Stage2 ECMP GROUP",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"npu_hwr/bank/counter/inuse_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH-2' AND \"resource\" = 'stage2-lb-group' AND \"npu_hwr/npu_id\" = '0' AND \"npu_hwr/bank/bank_id\" = '0') AND $timeFilter",
+          "rawQuery": false,
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/inuse_entries"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "source",
+              "operator": "=",
+              "value": "8201-32FH-2"
+            },
+            {
+              "condition": "AND",
+              "key": "resource",
+              "operator": "=",
+              "value": "stage2-lb-group"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/npu_id",
+              "operator": "=",
+              "value": "0"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/bank/bank_id",
+              "operator": "=",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "alias": "Stage2 ECMP Member",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"npu_hwr/bank/counter/inuse_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH-2' AND \"resource\" = 'stage2-lb-group' AND \"npu_hwr/npu_id\" = '0') AND $timeFilter",
+          "rawQuery": false,
+          "refId": "F",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/inuse_entries"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "source",
+              "operator": "=",
+              "value": "8201-32FH-2"
+            },
+            {
+              "condition": "AND",
+              "key": "resource",
+              "operator": "=",
+              "value": "stage2-lb-member"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/npu_id",
+              "operator": "=",
+              "value": "0"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/bank/bank_id",
+              "operator": "=",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "alias": "Egress Large Encap",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"npu_hwr/bank/counter/inuse_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH-2' AND \"resource\" = 'stage2-lb-group' AND \"npu_hwr/npu_id\" = '0') AND $timeFilter",
+          "rawQuery": false,
+          "refId": "H",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/inuse_entries"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "source",
+              "operator": "=",
+              "value": "8201-32FH-2"
+            },
+            {
+              "condition": "AND",
+              "key": "resource",
+              "operator": "=",
+              "value": "egress-large-encap"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/npu_id",
+              "operator": "=",
+              "value": "0"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/bank/bank_id",
+              "operator": "=",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "alias": "Egress Small Encap",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT \"npu_hwr/bank/counter/inuse_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH-2' AND \"resource\" = 'stage2-lb-group' AND \"npu_hwr/npu_id\" = '0') AND $timeFilter",
+          "rawQuery": false,
+          "refId": "I",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/inuse_entries"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "source",
+              "operator": "=",
+              "value": "8201-32FH-2"
+            },
+            {
+              "condition": "AND",
+              "key": "resource",
+              "operator": "=",
+              "value": "egress-small-encap"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/npu_id",
+              "operator": "=",
+              "value": "0"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/bank/bank_id",
+              "operator": "=",
+              "value": "0"
+            }
+          ]
+        }
+      ],
+      "title": "Cisco 8000 NPU Resource",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "uxKjWvyVk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 16,
+        "w": 18,
+        "x": 0,
+        "y": 32
+      },
+      "id": 6,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true,
+        "text": {}
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "alias": "IPv4 LPM",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT 100*\"npu_hwr/bank/counter/inuse_entries\"/\"npu_hwr/bank/counter/max_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH-2' AND \"resource\" = 'lpm-tcam' AND \"npu_hwr/npu_id\" = '0' AND \"npu_hwr/bank/bank_id\" = '1') AND $timeFilter",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/inuse_entries"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/max_entries"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "source",
+              "operator": "=",
+              "value": "8201-32FH-2"
+            },
+            {
+              "condition": "AND",
+              "key": "resource",
+              "operator": "=",
+              "value": "lpm-tcam"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/npu_id",
+              "operator": "=",
+              "value": "0"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/bank/bank_id",
+              "operator": "=",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "alias": "IPv6 LPM",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT 100*\"npu_hwr/bank/counter/inuse_entries\"/ \"npu_hwr/bank/counter/max_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH-2' AND \"resource\" = 'lpm-tcam' AND \"npu_hwr/npu_id\" = '0' AND \"npu_hwr/bank/bank_id\" = '2') AND $timeFilter",
+          "rawQuery": true,
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/inuse_entries"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/inuse_entries"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "source",
+              "operator": "=",
+              "value": "8201-32FH-2"
+            },
+            {
+              "condition": "AND",
+              "key": "resource",
+              "operator": "=",
+              "value": "lpm-tcam"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/npu_id",
+              "operator": "=",
+              "value": "0"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/bank/bank_id",
+              "operator": "=",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "alias": "Stage2 ECMP GROUP",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT 100*\"npu_hwr/bank/counter/inuse_entries\"/\"npu_hwr/bank/counter/max_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH-2' AND \"resource\" = 'stage2-lb-group' AND \"npu_hwr/npu_id\" = '0' AND \"npu_hwr/bank/bank_id\" = '0') AND $timeFilter",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/inuse_entries"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/max_entries"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "source",
+              "operator": "=",
+              "value": "8201-32FH-2"
+            },
+            {
+              "condition": "AND",
+              "key": "resource",
+              "operator": "=",
+              "value": "stage2-lb-group"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/npu_id",
+              "operator": "=",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "alias": "Stage1 ECMP GROUP",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT 100*\"npu_hwr/bank/counter/inuse_entries\"/\"npu_hwr/bank/counter/max_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH-2' AND \"resource\" = 'stage1-lb-group' AND \"npu_hwr/npu_id\" = '0' AND \"npu_hwr/bank/bank_id\" = '0') AND $timeFilter",
+          "rawQuery": true,
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/inuse_entries"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/max_entries"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "source",
+              "operator": "=",
+              "value": "8201-32FH-2"
+            },
+            {
+              "condition": "AND",
+              "key": "resource",
+              "operator": "=",
+              "value": "stage1-lb-group"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/npu_id",
+              "operator": "=",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "alias": "Stage1 ECMP Member",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT 100*\"npu_hwr/bank/counter/inuse_entries\"/\"npu_hwr/bank/counter/max_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH-2' AND \"resource\" = 'stage1-lb-member' AND \"npu_hwr/npu_id\" = '0' AND \"npu_hwr/bank/bank_id\" = '0') AND $timeFilter",
+          "rawQuery": true,
+          "refId": "E",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/inuse_entries"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/max_entries"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "source",
+              "operator": "=",
+              "value": "8201-32FH-2"
+            },
+            {
+              "condition": "AND",
+              "key": "resource",
+              "operator": "=",
+              "value": "stage1-lb-member"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/npu_id",
+              "operator": "=",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "alias": "Stage2 ECMP Member",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT 100*\"npu_hwr/bank/counter/inuse_entries\"/\"npu_hwr/bank/counter/max_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH-2' AND \"resource\" = 'stage2-lb-member' AND \"npu_hwr/npu_id\" = '0' AND \"npu_hwr/bank/bank_id\" = '0') AND $timeFilter",
+          "rawQuery": true,
+          "refId": "F",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/inuse_entries"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/max_entries"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "source",
+              "operator": "=",
+              "value": "8201-32FH-2"
+            },
+            {
+              "condition": "AND",
+              "key": "resource",
+              "operator": "=",
+              "value": "stage2-lb-member"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/npu_id",
+              "operator": "=",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "alias": "CEM",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT 100*\"npu_hwr/bank/counter/inuse_entries\"/\"npu_hwr/bank/counter/max_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH-2' AND \"resource\" = 'central-em' AND \"npu_hwr/npu_id\" = '0' AND \"npu_hwr/bank/bank_id\" = '0') AND $timeFilter",
+          "rawQuery": true,
+          "refId": "G",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/inuse_entries"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/max_entries"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "source",
+              "operator": "=",
+              "value": "8201-32FH-2"
+            },
+            {
+              "condition": "AND",
+              "key": "resource",
+              "operator": "=",
+              "value": "central-em"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/npu_id",
+              "operator": "=",
+              "value": "0"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/bank/bank_id",
+              "operator": "=",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "alias": "Egress Large Encap",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT 100*\"npu_hwr/bank/counter/inuse_entries\"/\"npu_hwr/bank/counter/max_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH-2' AND \"resource\" = 'egress-large-encap' AND \"npu_hwr/npu_id\" = '0' AND \"npu_hwr/bank/bank_id\" = '0') AND $timeFilter",
+          "rawQuery": true,
+          "refId": "H",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/inuse_entries"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/max_entries"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "source",
+              "operator": "=",
+              "value": "8201-32FH-2"
+            },
+            {
+              "condition": "AND",
+              "key": "resource",
+              "operator": "=",
+              "value": "egress-large-encap"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/npu_id",
+              "operator": "=",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "alias": "Egress Small Encap",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT 100*\"npu_hwr/bank/counter/inuse_entries\"/\"npu_hwr/bank/counter/max_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH-2' AND \"resource\" = 'egress-small-encap' AND \"npu_hwr/npu_id\" = '0' AND \"npu_hwr/bank/bank_id\" = '0') AND $timeFilter",
+          "rawQuery": true,
+          "refId": "I",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/inuse_entries"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/max_entries"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "source",
+              "operator": "=",
+              "value": "8201-32FH-2"
+            },
+            {
+              "condition": "AND",
+              "key": "resource",
+              "operator": "=",
+              "value": "egress-small-encap"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/npu_id",
+              "operator": "=",
+              "value": "0"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/bank/bank_id",
+              "operator": "=",
+              "value": "0"
+            }
+          ]
+        }
+      ],
+      "title": "Cisco 8000 NPU Resource",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "influxdb",
+        "uid": "uxKjWvyVk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "log": 2,
+              "type": "log"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 16,
+        "w": 18,
+        "x": 0,
+        "y": 48
+      },
+      "id": 8,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "right",
+          "showLegend": true
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "pluginVersion": "9.4.7",
+      "targets": [
+        {
+          "alias": "IPv4 LPM",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT 100*\"npu_hwr/bank/counter/inuse_entries\"/\"npu_hwr/bank/counter/max_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH-2' AND \"resource\" = 'lpm-tcam' AND \"npu_hwr/npu_id\" = '0' AND \"npu_hwr/bank/bank_id\" = '1') AND $timeFilter",
+          "rawQuery": true,
+          "refId": "A",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/inuse_entries"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/max_entries"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "source",
+              "operator": "=",
+              "value": "8201-32FH-2"
+            },
+            {
+              "condition": "AND",
+              "key": "resource",
+              "operator": "=",
+              "value": "lpm-tcam"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/npu_id",
+              "operator": "=",
+              "value": "0"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/bank/bank_id",
+              "operator": "=",
+              "value": "1"
+            }
+          ]
+        },
+        {
+          "alias": "IPv6 LPM",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT 100*\"npu_hwr/bank/counter/inuse_entries\"/ \"npu_hwr/bank/counter/max_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH-2' AND \"resource\" = 'lpm-tcam' AND \"npu_hwr/npu_id\" = '0' AND \"npu_hwr/bank/bank_id\" = '2') AND $timeFilter",
+          "rawQuery": true,
+          "refId": "C",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/inuse_entries"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/inuse_entries"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "source",
+              "operator": "=",
+              "value": "8201-32FH-2"
+            },
+            {
+              "condition": "AND",
+              "key": "resource",
+              "operator": "=",
+              "value": "lpm-tcam"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/npu_id",
+              "operator": "=",
+              "value": "0"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/bank/bank_id",
+              "operator": "=",
+              "value": "2"
+            }
+          ]
+        },
+        {
+          "alias": "CEM",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT 100*\"npu_hwr/bank/counter/inuse_entries\"/\"npu_hwr/bank/counter/max_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH-2' AND \"resource\" = 'central-em' AND \"npu_hwr/npu_id\" = '0' AND \"npu_hwr/bank/bank_id\" = '0') AND $timeFilter",
+          "rawQuery": true,
+          "refId": "G",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/inuse_entries"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/max_entries"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "source",
+              "operator": "=",
+              "value": "8201-32FH-2"
+            },
+            {
+              "condition": "AND",
+              "key": "resource",
+              "operator": "=",
+              "value": "central-em"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/npu_id",
+              "operator": "=",
+              "value": "0"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/bank/bank_id",
+              "operator": "=",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "alias": "Stage1 ECMP GROUP",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT 100*\"npu_hwr/bank/counter/inuse_entries\"/\"npu_hwr/bank/counter/max_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH-2' AND \"resource\" = 'stage1-lb-group' AND \"npu_hwr/npu_id\" = '0' AND \"npu_hwr/bank/bank_id\" = '0') AND $timeFilter",
+          "rawQuery": true,
+          "refId": "D",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/inuse_entries"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/max_entries"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "source",
+              "operator": "=",
+              "value": "8201-32FH-2"
+            },
+            {
+              "condition": "AND",
+              "key": "resource",
+              "operator": "=",
+              "value": "stage1-lb-group"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/npu_id",
+              "operator": "=",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "alias": "Stage1 ECMP Member",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT 100*\"npu_hwr/bank/counter/inuse_entries\"/\"npu_hwr/bank/counter/max_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH-2' AND \"resource\" = 'stage1-lb-member' AND \"npu_hwr/npu_id\" = '0' AND \"npu_hwr/bank/bank_id\" = '0') AND $timeFilter",
+          "rawQuery": true,
+          "refId": "E",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/inuse_entries"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/max_entries"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "source",
+              "operator": "=",
+              "value": "8201-32FH-2"
+            },
+            {
+              "condition": "AND",
+              "key": "resource",
+              "operator": "=",
+              "value": "stage1-lb-member"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/npu_id",
+              "operator": "=",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "alias": "Stage2 ECMP GROUP",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT 100*\"npu_hwr/bank/counter/inuse_entries\"/\"npu_hwr/bank/counter/max_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH-2' AND \"resource\" = 'stage2-lb-group' AND \"npu_hwr/npu_id\" = '0' AND \"npu_hwr/bank/bank_id\" = '0') AND $timeFilter",
+          "rawQuery": true,
+          "refId": "B",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/inuse_entries"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/max_entries"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "source",
+              "operator": "=",
+              "value": "8201-32FH-2"
+            },
+            {
+              "condition": "AND",
+              "key": "resource",
+              "operator": "=",
+              "value": "stage2-lb-group"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/npu_id",
+              "operator": "=",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "alias": "Stage2 ECMP Member",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT 100*\"npu_hwr/bank/counter/inuse_entries\"/\"npu_hwr/bank/counter/max_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH-2' AND \"resource\" = 'stage2-lb-member' AND \"npu_hwr/npu_id\" = '0' AND \"npu_hwr/bank/bank_id\" = '0') AND $timeFilter",
+          "rawQuery": true,
+          "refId": "F",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/inuse_entries"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/max_entries"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "source",
+              "operator": "=",
+              "value": "8201-32FH-2"
+            },
+            {
+              "condition": "AND",
+              "key": "resource",
+              "operator": "=",
+              "value": "stage2-lb-member"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/npu_id",
+              "operator": "=",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "alias": "Egress Large Encap",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT 100*\"npu_hwr/bank/counter/inuse_entries\"/\"npu_hwr/bank/counter/max_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH-2' AND \"resource\" = 'egress-large-encap' AND \"npu_hwr/npu_id\" = '0' AND \"npu_hwr/bank/bank_id\" = '0') AND $timeFilter",
+          "rawQuery": true,
+          "refId": "H",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/inuse_entries"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/max_entries"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "source",
+              "operator": "=",
+              "value": "8201-32FH-2"
+            },
+            {
+              "condition": "AND",
+              "key": "resource",
+              "operator": "=",
+              "value": "egress-large-encap"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/npu_id",
+              "operator": "=",
+              "value": "0"
+            }
+          ]
+        },
+        {
+          "alias": "Egress Small Encap",
+          "datasource": {
+            "type": "influxdb",
+            "uid": "uxKjWvyVk"
+          },
+          "groupBy": [],
+          "hide": false,
+          "measurement": "Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data",
+          "orderByTime": "ASC",
+          "policy": "default",
+          "query": "SELECT 100*\"npu_hwr/bank/counter/inuse_entries\"/\"npu_hwr/bank/counter/max_entries\" FROM \"Cisco-IOS-XR-platforms-ofa-oper:ofa/stats/nodes/node/Cisco-IOS-XR-8000-platforms-npu-resources-oper:hw-resources-datas/hw-resources-data\" WHERE (\"source\" = '8201-32FH-2' AND \"resource\" = 'egress-small-encap' AND \"npu_hwr/npu_id\" = '0' AND \"npu_hwr/bank/bank_id\" = '0') AND $timeFilter",
+          "rawQuery": true,
+          "refId": "I",
+          "resultFormat": "time_series",
+          "select": [
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/inuse_entries"
+                ],
+                "type": "field"
+              }
+            ],
+            [
+              {
+                "params": [
+                  "npu_hwr/bank/counter/max_entries"
+                ],
+                "type": "field"
+              }
+            ]
+          ],
+          "tags": [
+            {
+              "condition": "AND",
+              "key": "source",
+              "operator": "=",
+              "value": "8201-32FH-2"
+            },
+            {
+              "condition": "AND",
+              "key": "resource",
+              "operator": "=",
+              "value": "egress-small-encap"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/npu_id",
+              "operator": "=",
+              "value": "0"
+            },
+            {
+              "condition": "AND",
+              "key": "npu_hwr/bank/bank_id",
+              "operator": "=",
+              "value": "0"
+            }
+          ]
+        }
+      ],
+      "title": "Cisco 8000 NPU Resource",
+      "type": "timeseries"
+    }
+  ],
+  "refresh": "",
+  "revision": 1,
+  "schemaVersion": 38,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-15m",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "NPU Resource",
+  "uid": "rttzHEP4z",
+  "version": 5,
+  "weekStart": ""
+}
